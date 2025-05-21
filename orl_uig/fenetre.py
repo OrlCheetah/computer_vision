@@ -7,6 +7,10 @@ from outils import set_app_path
 from Recognizer import Recognizer
 
 class Orl_GUI:
+    """
+    Classe principale de l'interface graphique pour OrlVoice.
+    Permet à l'utilisateur de choisir entre la reconnaissance vocale et la saisie texte.
+    """
     def __init__(self):
         self.root = tk.Tk()
         self.root.title("OrlVoice Interface")
@@ -52,6 +56,14 @@ class Orl_GUI:
             messagebox.showwarning("OrlVoice", "Veuillez entrer une commande texte.")
 
     def on_text_recognized(self, text):
+        text = text.lower()
+        lts = ["tape", "tape", "taper", "tapez", "tap", "taper",
+                "tapez", "tap", "écrire", "écrire", "écrivez", "ecrire", "ecrivez"]
+        if text.startswith("ouvr", "tap"):
+            for word in lts:
+                if text.startswith(word):
+                    text = text.replace(word, "")
+            
         print(f"Commande reçue : {text}")
         action = self.nlp.predict_intent(text)
         self.executor.execute_action(action)

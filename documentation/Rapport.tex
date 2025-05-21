@@ -1,0 +1,177 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{OrlVoice}
+\lhead{Documentation}
+\rfoot{\thepage}
+
+\title{Documentation Fonctionnelle et Technique \\ \smallskip \large Projet OrlVoice}
+\author{Nom du développeur : \underline{ Abdoulaye Chaibou Saidou\hspace{1.5cm}}}
+\date{5 mai 2025}
+
+\begin{document}
+	
+	\maketitle
+	\tableofcontents
+	\newpage
+	
+	\section{Introduction}
+	OrlVoice est une application PC, composante entière, de commande vocale et textuelle destinée à automatiser des interactions avec l’interface utilisateur (clics, frappes, ouverture d’applications, etc.).  
+	Elle fonctionne localement, sans connexion Internet, et exploite des modèles de reconnaissance vocale, de NLP et éventuellement de computer vision.
+	
+	\section{Objectifs du projet}
+	\begin{itemize}
+		\item Permettre à l’utilisateur de contrôler un ordinateur ou un smartphone par la voix.
+		\item Offrir une interface simple pour basculer entre commandes vocales et textuelles.
+		\item Intégrer des fonctionnalités intelligentes comme la reconnaissance d’écrans, de boutons, d’applications.
+		\item Offrir un mode totalement hors-ligne.
+	\end{itemize}
+	
+	\section{Vue d'ensemble de l'application}
+	\subsection{Architecture générale}
+	Le projet est structuré en plusieurs modules :
+	\begin{itemize}
+		\item \textbf{Interface utilisateur (UI)} : Interface graphique (Tkinter sur PC / Jetpack Compose sur Android) permettant d’entrer une commande ou d’activer la reconnaissance vocale.
+		\item \textbf{Reconnaissance vocale} : Module d’analyse audio permettant de convertir la voix en texte (speech-to-text).
+		\item \textbf{Analyse NLP} : Analyse de l’intention de l’utilisateur (ex : ouvrir une application, écrire un texte, cliquer, etc.).
+		\item \textbf{Moteur d’action} : Exécution des actions à l’écran (via pyautogui ou API Android).
+		\item \textbf{Gestion des chemins} : Système de mémorisation des chemins d’accès aux applications.
+	\end{itemize}
+	
+	\section{Fonctionnalités principales}
+	\begin{itemize}
+		\item Détection vocale et exécution automatique.
+		\item Saisie manuelle de commande (en mode texte).
+		\item Ouverture d’applications par leur nom ou leur raccourci.
+		\item Simulation de clics, double-clics, clics droits.
+		\item Mouvements de souris (haut, bas, gauche, droite).
+		\item Écriture de texte dicté.
+		\item Scroll de la page (haut / bas).
+		\item Enregistrement des chemins personnalisés si l’application n’est pas détectée automatiquement.
+	\end{itemize}
+	
+	\section{Interface utilisateur}
+	\subsection{Fenêtre principale}
+	\begin{itemize}
+		\item Titre : OrlVoice Interface
+		\item Mode vocal : activation/désactivation via une case à cocher.
+		\item Bouton de reconnaissance vocale.
+		\item Champ texte pour saisie manuelle.
+		\item Bouton pour envoyer la commande lorsqu'elle est textuelle.
+	\end{itemize}
+	
+	\subsection{Pop-ups et alertes}
+	\begin{itemize}
+		\item Notification lorsque le mode vocal est activé.
+		\item Alerte si le mode vocal est désactivé.
+		\item Avertissement si la commande texte est vide.
+		\item Pop-up de sélection de fichier pour les applications non reconnues.
+	\end{itemize}
+	
+	\section{Spécifications fonctionnelles}
+	\subsection{Cas d'utilisation principaux}
+	\begin{itemize}
+		\item \textbf{UC1} : L'utilisateur clique sur "Parler" → la voix est transcrite → commande exécutée.
+		\item \textbf{UC2} : L'utilisateur écrit une commande → clic sur "Envoyer" → commande exécutée.
+		\item \textbf{UC3} : Si l'application à ouvrir est inconnue, l'utilisateur sélectionne manuellement le fichier .exe.
+	\end{itemize}
+	
+	\subsection{Gestion des erreurs}
+	\begin{itemize}
+		\item Fichier de l'application introuvable : demande manuelle.
+		\item Transcription incorrecte : possibilité de re-saisir la commande.
+		\item Problème avec la reconnaissance : retour visuel par message d'erreur.
+	\end{itemize}
+	
+	\section{Spécifications techniques}
+	\begin{itemize}
+		\item \textbf{Langage} : Python (PC)
+		\item \textbf{Framework UI} : Tkinter (PC)
+		\item \textbf{Reconnaissance vocale} : API Speech Reconition de Google
+		\item \textbf{Traitement NLP} : classification de texte ou modèle CamemBert
+		\item \textbf{Exécution d’actions} : pyautogui (PC)
+		\item \textbf{Stockage des chemins d'applications} : chargés dans un fichier JSON dans le dossier .cache
+	
+	\section{Données d’entrée / sortie}
+	\subsection{Entrées possibles}
+	\begin{itemize}
+		\item Audio en direct (microphone)
+		\item Texte saisi via l’interface (plus pour pouvoir tester l'application)
+	\end{itemize}
+	
+	\subsection{Sorties attendues}
+	\begin{itemize}
+		\item Actions exécutées sur la machine (clic, saisie, lancement, ecrire)
+		\item Logs ou messages de retour dans la console et l’interface
+	\end{itemize}
+	
+	\section{Évolutions possibles}
+	\begin{itemize}
+		\item Ajout de la reconnaissance d’éléments visuels avec la vision par ordinateur (YOLO, TFLite)
+		\item Ajout de profils personnalisés pour des utilisateurs spécifiques
+		\item Support multilingue (reconnaissance vocale + NLP multilingues)
+		\item Intégration mobile complète via une app Android
+	\end{itemize}
+	
+	\section{Reconnaissance Vocale : défis et solutions}
+	
+	\subsection{Limites des modèles avancés comme Whisper}
+	Whisper, développé par OpenAI, est l’un des modèles les plus puissants en transcription vocale, notamment multilingue. Cependant, son usage présente plusieurs défis :
+	\begin{itemize}[label=--]
+		\item \textbf{Consommation de ressources importante} : Les modèles Whisper, même dans leurs versions petites (small, base), nécessitent un GPU puissant pour une transcription fluide.
+		\item \textbf{Poids du modèle} : Le modèle complet dépasse les 1 Go, ce qui le rend difficile à embarquer sur des appareils mobiles ou pour un usage embarqué hors-ligne.
+		\item \textbf{Temps de latence} : Même sur GPU, le temps de réponse est parfois trop long pour des interactions utilisateur en temps réel.
+		\item \textbf{Pas d’adaptation dynamique} : Whisper ne permet pas l’entraînement en ligne sur la voix spécifique de l'utilisateur.
+	\end{itemize}
+	
+	\subsection{Choix de l'API Google Speech Recognizer}
+	L’API \texttt{speech\_recognition} de Google a été choisie pour son accessibilité, sa simplicité d'intégration avec Python, et sa rapidité dans des cas simples. Elle permet de :
+	\begin{itemize}[label=--]
+		\item Transcrire rapidement des fichiers courts.
+		\item Gérer plusieurs accents avec une bonne précision.
+		\item Retourner des résultats en quelques secondes via une API Cloud.
+	\end{itemize}
+	
+	\subsection{Limitations de l’API Google}
+	\begin{itemize}[label=--]
+		\item \textbf{Connexion Internet obligatoire} : l’API fonctionne uniquement en ligne, ce qui limite son usage hors réseau.
+		\item \textbf{Quota et facturation} : au-delà d’un certain volume de requêtes, l’API devient payante.
+		\item \textbf{Confidentialité} : Les données vocales sont envoyées aux serveurs de Google, ce qui pose des questions de protection des données sensibles.
+	\end{itemize}
+	
+	\subsection{Solutions prévues}
+	Pour pallier ces limitations, plusieurs approches sont en cours d'étude :
+	\begin{itemize}[label=--]
+		\item \textbf{Passage à une transcription hors-ligne} grâce à l’utilisation de modèles légers comme \texttt{Vosk}, \texttt{Coqui STT} ou \texttt{Whisper-tiny} optimisé en \texttt{ONNX} pour une intégration avec \texttt{DJL} en Java.
+		\item \textbf{Création d’un fallback} : utiliser Whisper localement si la connexion est absente, et Google Speech en ligne si disponible.
+		\item \textbf{Filtrage des données sensibles} avant envoi via l’API, ou suppression immédiate après transcription.
+		\item \textbf{Entraînement personnalisé} sur des commandes courtes, avec un modèle CTC plus simple et spécialisé, pour de meilleures performances en usage vocal limité.
+	\end{itemize}
+	
+	\subsection{Perspectives}
+	À terme, l’objectif est de proposer une transcription vocale embarquée, multilingue, fiable, et capable de détecter des commandes spécifiques à l’utilisateur, tout en assurant la confidentialité et un fonctionnement entièrement hors-ligne.
+	
+	
+	\section{Annexes}
+	\begin{itemize}
+		\item Manuel d’utilisation (à rédiger séparément)
+		\item Fichiers de configuration (.json, .ini, .db)
+		\item Dictionnaire de commandes acceptées (à intégrer dans l’app)
+	\end{itemize}
+	
+	\vfill
+	\begin{center}
+		\textit{Fin du document}
+	\end{center}
+	
+\end{document}

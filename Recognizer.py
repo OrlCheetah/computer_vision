@@ -2,6 +2,10 @@ import threading
 import speech_recognition as sr
 
 class Recognizer:
+    """
+    Classe pour la reconnaissance vocale.
+    Utilise la bibliothèque SpeechRecognition pour écouter et traiter la voix.
+    """
     def __init__(self):
         self.is_listening = False
 
