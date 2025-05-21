@@ -43,6 +43,6 @@ Cette applcation constitue un composant de notre **application créée dans le c
 ## 🖥️ Lancer l'application (PC)
 
 ```bash
-git clone [https://github.com/OrlCheetah/computer_vision.git](https://github.com/OrlCheetah/computer_vision.git)
+git clone https://github.com/OrlCheetah/computer_vision.git
 cd computer_vision
 python main.py
