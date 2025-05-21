@@ -1,7 +1,9 @@
 # 🗣️ OrlVoice
 
 **OrlVoice** est une application multiplateforme de commande vocale capable d'exécuter des actions sur un PC grâce à la reconnaissance vocale, au traitement du langage naturel (NLP) et à la vision par ordinateur (computer vision). Elle fonctionne en **mode hors ligne** et permet notamment d'ouvrir des applications, simuler des clics, écrire du texte et interagir dynamiquement avec une interface.
-Cette applcation constitue un composant de notre application basée sur la vision par ordinateur pour facilier l'interacation entre PC et utilisateur
+Cette applcation constitue un composant de notre **application créée dans le cadre de notre projet d'intelligence artificielle basée sur la vision par ordinateur**. Son but est de facilier l'interacation entre PC et utilisateur.
+
+**OrlVoice** sera intégrée dans 
 
 ---
 
@@ -44,4 +46,3 @@ Cette applcation constitue un composant de notre application basée sur la visio
 git clone https://github.com/OrlCheetah/computer_vision.git
 cd orlvoice
 python main.py
-# Compilez et exécutez le projet Java (ou ouvrez-le dans IntelliJ)
