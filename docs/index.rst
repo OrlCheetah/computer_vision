@@ -1,12 +1,13 @@
 OrlVoice
 ========
 
-**OrlVoice** est une application multiplateforme de commande vocale capable d'exécuter des actions sur un PC grâce à la reconnaissance vocale, au traitement du langage naturel (NLP) et à la vision par ordinateur (computer vision). Elle fonctionne en **mode hors ligne** et permet notamment :
+**OrlVoice** est une application PC de commande vocale et textuelle, c'est un composant d'application basée sur la vision par ordinateur permettant une interaction fulide entre l'homme et le PC, elle est capable d'exécuter des actions sur un PC grâce à la reconnaissance vocale, au traitement du langage naturel (NLP) et à la vision par ordinateur (computer vision). Elle fonctionne en **mode onligne** et permet notamment :
 
 - d'ouvrir des applications,
 - de simuler des clics,
 - d’écrire du texte,
-- et d’interagir dynamiquement avec une interface.
+- de scroller,
+- et d’interagir dynamiquement avec une interface graphique utilisateur.
 
 Cette application constitue un composant de notre **projet d'intelligence artificielle basé sur la vision par ordinateur**. Son objectif est de faciliter l'interaction entre le PC et l'utilisateur. **OrlVoice** sera intégrée dans un système plus large.
 
@@ -31,8 +32,8 @@ Technologies utilisées
 Fonctionnement
 --------------
 
-#. **Commande vocale** : L'utilisateur parle, le micro capture l'audio.
-#. **Transcription** : L’audio est converti en texte via l’**API Google Speech Recognizer**.
+#. **Commande vocale** : L'utilisateur parle, le micro capture l'audio. Le micro est activé quand un son depassant un certain seuil est détecté.
+#. **Transcription** : L’audio est converti en texte via l’**API Google Speech Recognizer**. Ce qui fait que l'application fonctionne uniquement en ligne en mode vocal d'o
 #. **Compréhension** : Le texte est analysé par un modèle NLP pour prédire l’action à exécuter.
 #. **Correction (optionnelle)** : Si l’application n’est pas trouvée, l’utilisateur fournit un chemin pour l’enregistrer.
 #. **Exécution** :
@@ -47,4 +48,4 @@ Installation et lancement (PC)
 
     git clone https://github.com/OrlCheetah/computer_vision.git
     cd computer_vision
-    py
+    python main.py
