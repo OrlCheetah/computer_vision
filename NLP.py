@@ -4,7 +4,7 @@ import pickle
 
 class Nlp_model:
     """
-    classe du model nlp entrainer
+    classe du model nlp entrainé
     """
     def __init__(self):
         self.tokenizer = CamembertTokenizer.from_pretrained("./orlvoice_intent_model")

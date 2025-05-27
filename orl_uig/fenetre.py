@@ -57,24 +57,8 @@ class Orl_GUI:
 
     def on_text_recognized(self, text):
         text = text.lower()
-        lts = ["tape", "tape", "taper", "tapez", "tap", "taper",
-                "tapez", "tap", "écrire", "écrire", "écrivez", "ecrire", "ecrivez"]
-        if text.startswith("ouvr", "tap"):
-            for word in lts:
-                if text.startswith(word):
-                    text = text.replace(word, "")
-            
         print(f"Commande reçue : {text}")
         action = self.nlp.predict_intent(text)
-        self.executor.execute_action(action)
-
-    def ask_user_for_path(self, app_name):
-        messagebox.showinfo("OrlVoice", f"Veuillez sélectionner l’exécutable de {app_name.capitalize()}.")
-        file_path = filedialog.askopenfilename(title=f"Choisir {app_name}", filetypes=[("Fichiers EXE", "*.exe")])
-        if file_path:
-            set_app_path(app_name, file_path)
-            return file_path
-        return None
-
+        self.executor.execute_action(action=action, text=text)
     def run(self):
         self.root.mainloop()

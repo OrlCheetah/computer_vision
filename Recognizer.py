@@ -11,7 +11,9 @@ class Recognizer:
 
     def listen_and_process(self, on_text_callback):
         recognizer = sr.Recognizer()
-        microphone = sr.Microphone()
+        microphone = sr.Microphone(2)
+        recognizer.energy_threshold = 400
+        recognizer.dynamic_energy_threshold = False
 
         with microphone as source:
             recognizer.adjust_for_ambient_noise(source)
