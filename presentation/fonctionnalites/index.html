@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fonctionnalites" class="md-skip">
+        <a href="#fonctionnalites-dorlvoice" class="md-skip">
           Aller au contenu
         </a>
       
@@ -394,7 +394,100 @@
         <li class="md-nav__item">
   <a href="#fonctionnalites-actuelles" class="md-nav__link">
     <span class="md-ellipsis">
-      ✅ Fonctionnalités actuelles
+      Fonctionnalités actuelles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comprehension-des-commandes-vocales" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Compréhension des commandes vocales
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧠 Compréhension des commandes vocales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#categories-dactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      🎯 Catégories d'actions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Catégories d&#39;actions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-commandes-de-mouvement-de-la-souris" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Commandes de mouvement de la souris
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-actions-de-clic" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Actions de clic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-defilement-scroll" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Défilement (scroll)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-saisie-de-texte" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Saisie de texte
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-lancement-et-fermeture-dapplications" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Lancement et fermeture d’applications
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#liste-complete-des-commandes-reconnues" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧾 Liste complète des commandes reconnues
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fonctionnalites-en-developpement" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Fonctionnalités en développement
     </span>
   </a>
   
@@ -812,9 +905,8 @@
   
 
 
-<h1 id="fonctionnalites">Fonctionnalités<a class="headerlink" href="#fonctionnalites" title="Permanent link">&para;</a></h1>
-<h2 id="fonctionnalites-actuelles">✅ Fonctionnalités actuelles<a class="headerlink" href="#fonctionnalites-actuelles" title="Permanent link">&para;</a></h2>
 <h1 id="fonctionnalites-dorlvoice">Fonctionnalités d'OrlVoice<a class="headerlink" href="#fonctionnalites-dorlvoice" title="Permanent link">&para;</a></h1>
+<h2 id="fonctionnalites-actuelles">Fonctionnalités actuelles<a class="headerlink" href="#fonctionnalites-actuelles" title="Permanent link">&para;</a></h2>
 <p>OrlVoice est une application innovante de commande vocale qui interprète les intentions de l'utilisateur grâce à un modèle de <strong>traitement du langage naturel (NLP)</strong>. Voici les principales fonctionnalités qu'elle prend en charge :</p>
 <hr />
 <h2 id="comprehension-des-commandes-vocales">🧠 Compréhension des commandes vocales<a class="headerlink" href="#comprehension-des-commandes-vocales" title="Permanent link">&para;</a></h2>
@@ -858,13 +950,220 @@
 <hr />
 <h4 id="5-lancement-et-fermeture-dapplications">5. <strong>Lancement et fermeture d’applications</strong><a class="headerlink" href="#5-lancement-et-fermeture-dapplications" title="Permanent link">&para;</a></h4>
 <ul>
-<li><code>ouvrir_app</code> : pour ouvrir une application (ex. : "ouvre WhatsApp")</li>
-<li><code>fermer_app</code> : pour la fermer</li>
+<li><code>ouvrir_app</code> : pour ouvrir une application (ex. : "ouvre WhatsApp")<blockquote>
+<p>Pour les applications inconnues, l'utilisateur fournit le chemin d'accès vers l'executable de l'application. le chemin est enregistré dans un fichier json des  pour les futures utilisations. Il est conseillé de fournir le chemin complet de l'exécutable et de garder le nom de l'application simple (ex. : "WhatsApp" pour <code>C:\Program Files\WatsApp\WatsApp.exe</code>) et d'utiliser des noms d'applications sans espaces ni caractères spéciaux.</p>
+</blockquote>
+</li>
+<li><code>fermer_app</code> : pour la fermer<blockquote>
+<p>Pour fermer les applications, OrlVoice utilise la commande <code>taskkill</code> de Windows. Il est donc important que le nom de l'application soit le même que celui utilisé dans le gestionnaire des tâches (nom de processus) (ex. : "WhatsApp" pour <code>taskkill /im WhatsApp.exe</code>).</p>
+</blockquote>
+</li>
 </ul>
+<p>Voici quelques exemples de correspondances prises en charge :</p>
+<table>
+<thead>
+<tr>
+<th>Nom courant (voix)</th>
+<th>Nom du processus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>google chrome</td>
+<td>chrome.exe</td>
+</tr>
+<tr>
+<td>chrome</td>
+<td>chrome.exe</td>
+</tr>
+<tr>
+<td>mozilla firefox</td>
+<td>firefox.exe</td>
+</tr>
+<tr>
+<td>firefox</td>
+<td>firefox.exe</td>
+</tr>
+<tr>
+<td>edge</td>
+<td>msedge.exe</td>
+</tr>
+<tr>
+<td>microsoft edge</td>
+<td>msedge.exe</td>
+</tr>
+<tr>
+<td>opera</td>
+<td>opera.exe</td>
+</tr>
+<tr>
+<td>brave</td>
+<td>brave.exe</td>
+</tr>
+<tr>
+<td>notepad</td>
+<td>notepad.exe</td>
+</tr>
+<tr>
+<td>bloc-notes</td>
+<td>notepad.exe</td>
+</tr>
+<tr>
+<td>word</td>
+<td>WINWORD.EXE</td>
+</tr>
+<tr>
+<td>excel</td>
+<td>EXCEL.EXE</td>
+</tr>
+<tr>
+<td>powerpoint</td>
+<td>POWERPNT.EXE</td>
+</tr>
+<tr>
+<td>outlook</td>
+<td>OUTLOOK.EXE</td>
+</tr>
+<tr>
+<td>teams</td>
+<td>Teams.exe</td>
+</tr>
+<tr>
+<td>vlc</td>
+<td>vlc.exe</td>
+</tr>
+<tr>
+<td>spotify</td>
+<td>Spotify.exe</td>
+</tr>
+<tr>
+<td>discord</td>
+<td>Discord.exe</td>
+</tr>
+<tr>
+<td>steam</td>
+<td>steam.exe</td>
+</tr>
+<tr>
+<td>skype</td>
+<td>Skype.exe</td>
+</tr>
+<tr>
+<td>visual studio</td>
+<td>devenv.exe</td>
+</tr>
+<tr>
+<td>vs code</td>
+<td>Code.exe</td>
+</tr>
+<tr>
+<td>vscode</td>
+<td>Code.exe</td>
+</tr>
+<tr>
+<td>android studio</td>
+<td>studio64.exe</td>
+</tr>
+<tr>
+<td>pycharm</td>
+<td>pycharm64.exe</td>
+</tr>
+<tr>
+<td>intellij</td>
+<td>idea64.exe</td>
+</tr>
+<tr>
+<td>explorateur de fichiers</td>
+<td>explorer.exe</td>
+</tr>
+<tr>
+<td>explorer</td>
+<td>explorer.exe</td>
+</tr>
+<tr>
+<td>calculatrice</td>
+<td>CalculatorApp.exe</td>
+</tr>
+<tr>
+<td>paint</td>
+<td>mspaint.exe</td>
+</tr>
+<tr>
+<td>cmd</td>
+<td>cmd.exe</td>
+</tr>
+<tr>
+<td>invite de commande</td>
+<td>cmd.exe</td>
+</tr>
+<tr>
+<td>powershell</td>
+<td>powershell.exe</td>
+</tr>
+<tr>
+<td>terminal</td>
+<td>WindowsTerminal.exe</td>
+</tr>
+<tr>
+<td>zoom</td>
+<td>Zoom.exe</td>
+</tr>
+<tr>
+<td>notion</td>
+<td>Notion.exe</td>
+</tr>
+<tr>
+<td>obs</td>
+<td>obs64.exe</td>
+</tr>
+<tr>
+<td>gimp</td>
+<td>gimp-2.10.exe</td>
+</tr>
+<tr>
+<td>whatsapp</td>
+<td>WhatsApp.exe</td>
+</tr>
+<tr>
+<td>telegram</td>
+<td>Telegram.exe</td>
+</tr>
+<tr>
+<td>instagram</td>
+<td>Instagram.exe</td>
+</tr>
+<tr>
+<td>facebook</td>
+<td>Facebook.exe</td>
+</tr>
+<tr>
+<td>audacity</td>
+<td>audacity.exe</td>
+</tr>
+<tr>
+<td>adobe reader</td>
+<td>AcroRd32.exe</td>
+</tr>
+<tr>
+<td>acrobat</td>
+<td>AcroRd32.exe</td>
+</tr>
+<tr>
+<td>wordpad</td>
+<td>wordpad.exe</td>
+</tr>
+<tr>
+<td>onenote</td>
+<td>ONENOTE.EXE</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>Astuce :</strong> Il n'est donc pas nécessaire de connaître le nom exact du processus système de ces applications (comme <code>chrome.exe</code>) pour les fermer. OrlVoice effectue automatiquement la correspondance entre le nom courant et l'exécutable système.</p>
+</blockquote>
 <hr />
 <h3 id="liste-complete-des-commandes-reconnues">🧾 Liste complète des commandes reconnues<a class="headerlink" href="#liste-complete-des-commandes-reconnues" title="Permanent link">&para;</a></h3>
-<p>les commandes de deplacement de la souris sont au format <code>deplacer_souris:[direction]_[distance]</code> où :
-* <code>[direction]</code> peut être <code>haut</code>, <code>bas</code>, <code>gauche</code>, <code>droite</code> <code>[distance]</code> est un nombre de pixels qui peut [3, 5, 10, 20, 50, 100, 150, 200, 240, 300] (ex. : <code>deplacer_souris:haut_50</code> déplace la souris de 50 pixels vers le haut).</p>
+<p>les commandes de deplacement de la souris sont au format <code>deplacer_souris:[direction]_[distance]</code> où : <code>[direction]</code> peut être <code>haut</code>, <code>bas</code>, <code>gauche</code>, <code>droite</code> <code>[distance]</code> est un nombre de pixels qui peut <code>[3, 5, 10, 20, 50, 100, 150, 200, 240, 300]</code> (ex. : <code>deplacer_souris:haut_50</code> déplace la souris de 50 pixels vers le haut).</p>
 <div class="codehilite"><pre><span></span><code><span class="n">deplacer_souris</span><span class="o">:</span><span class="n">gauche_5</span>
 <span class="n">scroll</span><span class="w"> </span><span class="n">gauche</span>
 <span class="n">déplacer</span><span class="w"> </span><span class="n">souris</span>
@@ -928,6 +1227,51 @@
 </ul>
 <hr />
 <p>OrlVoice est conçu pour évoluer rapidement. Les nouvelles fonctionnalités sont ajoutées au fur et à mesure des versions.</p>
+<blockquote>
+<p>🔧 Cette application est toujours en développement actif.</p>
+</blockquote>
+<h1 id="fonctionnalites-dorlvoice_1">🚀 Fonctionnalités d'OrlVoice<a class="headerlink" href="#fonctionnalites-dorlvoice_1" title="Permanent link">&para;</a></h1>
+<p>OrlVoice est une application innovante de commande vocale qui interprète les intentions de l'utilisateur grâce à un modèle de <strong>traitement du langage naturel (NLP)</strong>. Voici les principales fonctionnalités qu'elle prend en charge :</p>
+<hr />
+<h2 id="comprehension-des-commandes-vocales_1">🧠 Compréhension des commandes vocales<a class="headerlink" href="#comprehension-des-commandes-vocales_1" title="Permanent link">&para;</a></h2>
+<p>Le modèle NLP est entraîné pour <strong>reconnaître et classifier automatiquement</strong> un ensemble de commandes vocales permettant de piloter l'ordinateur. Ci-dessous, les types d'actions comprises :</p>
+<h3 id="categories-dactions_1">🎯 Catégories d'actions<a class="headerlink" href="#categories-dactions_1" title="Permanent link">&para;</a></h3>
+<h4 id="1-commandes-de-mouvement-de-la-souris_1">1. <strong>Commandes de mouvement de la souris</strong><a class="headerlink" href="#1-commandes-de-mouvement-de-la-souris_1" title="Permanent link">&para;</a></h4>
+<p>Ces commandes permettent de déplacer le curseur dans une direction spécifique d’un nombre de pixels donné :</p>
+<div class="codehilite"><pre><span></span><code><span class="nl">deplacer_souris</span><span class="p">:</span><span class="o">[</span><span class="n">direction</span><span class="o">]</span><span class="n">_</span><span class="o">[</span><span class="n">distance</span><span class="o">]</span>
+</code></pre></div>
+
+<ul>
+<li>Exemple : <code>deplacer_souris:haut_50</code>, <code>deplacer_souris:gauche_150</code></li>
+</ul>
+<p><strong>Directions supportées</strong> :</p>
+<ul>
+<li><code>haut</code>, <code>bas</code>, <code>gauche</code>, <code>droite</code></li>
+</ul>
+<hr />
+<h4 id="2-actions-de-clic_1">2. <strong>Actions de clic</strong><a class="headerlink" href="#2-actions-de-clic_1" title="Permanent link">&para;</a></h4>
+<p>Commandes simulant les clics de souris :</p>
+<ul>
+<li><code>clic gauche</code></li>
+<li><code>clic droit</code></li>
+<li><code>double clic</code></li>
+</ul>
+<hr />
+<h4 id="3-defilement-scroll_1">3. <strong>Défilement (scroll)</strong><a class="headerlink" href="#3-defilement-scroll_1" title="Permanent link">&para;</a></h4>
+<p>Commandes pour faire défiler l'écran dans une direction :</p>
+<ul>
+<li><code>scroll haut</code></li>
+<li><code>scroll bas</code></li>
+<li><code>scroll gauche</code></li>
+<li><code>scroll droite</code></li>
+</ul>
+<hr />
+<h4 id="4-saisie-de-texte_1">4. <strong>Saisie de texte</strong><a class="headerlink" href="#4-saisie-de-texte_1" title="Permanent link">&para;</a></h4>
+<p>Commande pour écrire dynamiquement du texte :</p>
+<ul>
+<li><code>écrire_texte</code></li>
+</ul>
+<hr />
 <blockquote>
 <p>🔧 Cette application est toujours en développement actif.</p>
 </blockquote>
