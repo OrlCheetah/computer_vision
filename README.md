@@ -2,6 +2,8 @@
 
 **OrlVoice** est une application multiplateforme de commande vocale capable d'exécuter des actions sur un PC grâce à la reconnaissance vocale, au traitement du langage naturel (NLP) et à la vision par ordinateur (computer vision). Elle fonctionne en **mode online** et permet notamment d'ouvrir des applications, simuler des clics, écrire du texte et interagir dynamiquement avec une interface.
 
+Vous pouvez trouver notre docuementation complète [ici](https://OrlCheetah.github.io/computer_vision/)
+
 Cette application est activement en developpement d'où certaines fonctionnalités sont encore en cours d'implémentation et des erreurs peuvent etre présentes, mais nous ttravaillons dessus.
 
 Cette applcation constitue un composant de notre **application créée dans le cadre de notre projet d'intelligence artificielle basée sur la vision par ordinateur**. Son but est de facilier l'interacation entre PC et utilisateur. Mais bieque composant, cette application est autonome et peut être utilisée de manière autonome pour exécuter des commandes vocales sur un ordinateur.

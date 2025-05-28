@@ -1,0 +1,47 @@
+site_name: OrlVoice
+repo_url: https://github.com/OrlCheetah/computer_vision
+theme:
+  name: material
+  language: fr
+  features:
+    - navigation.expand
+    - navigation.sections
+    - toc.integrate
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: blue
+      accent: teal
+    - scheme: slate
+      primary: blue
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+markdown_extensions:
+  - toc:
+      permalink: true
+  - codehilite
+  - admonition
+  - footnotes
+  - tables
+
+nav:
+  - Accueil: index.md
+  - Présentation:
+      - À propos: presentation/apropos.md
+      - Fonctionnalités: presentation/fonctionnalites.md
+      - Architecture: presentation/architecture.md
+  - Guide utilisateur:
+      - Installation: guide/installation.md
+      - Utilisation PC: guide/utilisation_pc.md
+      - Utilisation Android: guide/utilisation_android.md
+  - Développement:
+      - Configuration: dev/configuration.md
+      - Modèle NLP: dev/nlp.md
+      - Modèle Vision: dev/vision.md
+      - Simulation d'actions: dev/simulation.md
+      - Ajout de nouvelles commandes: dev/nouvelles_commandes.md
+  - FAQ: faq.md
+  - À venir: roadmap.md
+  - Crédits: credits.md
