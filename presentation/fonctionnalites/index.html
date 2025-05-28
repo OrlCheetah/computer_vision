@@ -400,15 +400,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#fonctionnalites-en-cours" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔜 Fonctionnalités en cours
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -823,19 +814,120 @@
 
 <h1 id="fonctionnalites">Fonctionnalités<a class="headerlink" href="#fonctionnalites" title="Permanent link">&para;</a></h1>
 <h2 id="fonctionnalites-actuelles">✅ Fonctionnalités actuelles<a class="headerlink" href="#fonctionnalites-actuelles" title="Permanent link">&para;</a></h2>
+<h1 id="fonctionnalites-dorlvoice">Fonctionnalités d'OrlVoice<a class="headerlink" href="#fonctionnalites-dorlvoice" title="Permanent link">&para;</a></h1>
+<p>OrlVoice est une application innovante de commande vocale qui interprète les intentions de l'utilisateur grâce à un modèle de <strong>traitement du langage naturel (NLP)</strong>. Voici les principales fonctionnalités qu'elle prend en charge :</p>
+<hr />
+<h2 id="comprehension-des-commandes-vocales">🧠 Compréhension des commandes vocales<a class="headerlink" href="#comprehension-des-commandes-vocales" title="Permanent link">&para;</a></h2>
+<p>Le modèle NLP est entraîné pour <strong>reconnaître et classifier automatiquement</strong> un ensemble de commandes vocales permettant de piloter l'ordinateur. Ci-dessous, les types d'actions comprises :</p>
+<h3 id="categories-dactions">🎯 Catégories d'actions<a class="headerlink" href="#categories-dactions" title="Permanent link">&para;</a></h3>
+<h4 id="1-commandes-de-mouvement-de-la-souris">1. <strong>Commandes de mouvement de la souris</strong><a class="headerlink" href="#1-commandes-de-mouvement-de-la-souris" title="Permanent link">&para;</a></h4>
+<p>Ces commandes permettent de déplacer le curseur dans une direction spécifique d’un nombre de pixels donné :</p>
+<div class="codehilite"><pre><span></span><code><span class="nl">deplacer_souris</span><span class="p">:</span><span class="o">[</span><span class="n">direction</span><span class="o">]</span><span class="n">_</span><span class="o">[</span><span class="n">distance</span><span class="o">]</span>
+</code></pre></div>
+
 <ul>
-<li>🎤 Activation du microphone</li>
-<li>🧠 Analyse des phrases avec un modèle NLP</li>
-<li>🧭 Correction orthographique automatique (ex : "watsaap" ➝ WhatsApp)</li>
-<li>🧾 Apprentissage dynamique des chemins d'applications</li>
-<li>🖱️ Simulation de clics et saisie clavier</li>
+<li>Exemple : <code>deplacer_souris:haut_50</code>, <code>deplacer_souris:gauche_150</code></li>
 </ul>
-<h2 id="fonctionnalites-en-cours">🔜 Fonctionnalités en cours<a class="headerlink" href="#fonctionnalites-en-cours" title="Permanent link">&para;</a></h2>
+<p><strong>Directions supportées</strong> :</p>
 <ul>
-<li>👁️ Intégration d’un modèle de vision (YOLO/TFLite)</li>
-<li>📱 Support Android avec Jetpack Compose</li>
-<li>⛔ Mode hors ligne complet</li>
+<li><code>haut</code>, <code>bas</code>, <code>gauche</code>, <code>droite</code></li>
 </ul>
+<hr />
+<h4 id="2-actions-de-clic">2. <strong>Actions de clic</strong><a class="headerlink" href="#2-actions-de-clic" title="Permanent link">&para;</a></h4>
+<p>Commandes simulant les clics de souris :</p>
+<ul>
+<li><code>clic gauche</code></li>
+<li><code>clic droit</code></li>
+<li><code>double clic</code></li>
+</ul>
+<hr />
+<h4 id="3-defilement-scroll">3. <strong>Défilement (scroll)</strong><a class="headerlink" href="#3-defilement-scroll" title="Permanent link">&para;</a></h4>
+<p>Commandes pour faire défiler l'écran dans une direction :</p>
+<ul>
+<li><code>scroll haut</code></li>
+<li><code>scroll bas</code></li>
+<li><code>scroll gauche</code></li>
+<li><code>scroll droite</code></li>
+</ul>
+<hr />
+<h4 id="4-saisie-de-texte">4. <strong>Saisie de texte</strong><a class="headerlink" href="#4-saisie-de-texte" title="Permanent link">&para;</a></h4>
+<p>Commande pour écrire dynamiquement du texte :</p>
+<ul>
+<li><code>écrire_texte</code></li>
+</ul>
+<hr />
+<h4 id="5-lancement-et-fermeture-dapplications">5. <strong>Lancement et fermeture d’applications</strong><a class="headerlink" href="#5-lancement-et-fermeture-dapplications" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>ouvrir_app</code> : pour ouvrir une application (ex. : "ouvre WhatsApp")</li>
+<li><code>fermer_app</code> : pour la fermer</li>
+</ul>
+<hr />
+<h3 id="liste-complete-des-commandes-reconnues">🧾 Liste complète des commandes reconnues<a class="headerlink" href="#liste-complete-des-commandes-reconnues" title="Permanent link">&para;</a></h3>
+<p>les commandes de deplacement de la souris sont au format <code>deplacer_souris:[direction]_[distance]</code> où :
+* <code>[direction]</code> peut être <code>haut</code>, <code>bas</code>, <code>gauche</code>, <code>droite</code> <code>[distance]</code> est un nombre de pixels qui peut [3, 5, 10, 20, 50, 100, 150, 200, 240, 300] (ex. : <code>deplacer_souris:haut_50</code> déplace la souris de 50 pixels vers le haut).</p>
+<div class="codehilite"><pre><span></span><code><span class="n">deplacer_souris</span><span class="o">:</span><span class="n">gauche_5</span>
+<span class="n">scroll</span><span class="w"> </span><span class="n">gauche</span>
+<span class="n">déplacer</span><span class="w"> </span><span class="n">souris</span>
+<span class="n">double</span><span class="w"> </span><span class="n">clic</span>
+<span class="err">é</span><span class="n">crire_texte</span>
+<span class="n">clic</span><span class="w"> </span><span class="n">gauche</span>
+<span class="n">scroll</span><span class="w"> </span><span class="n">droite</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">droite_10</span>
+<span class="n">scroll</span><span class="w"> </span><span class="n">haut</span>
+<span class="n">clic</span><span class="w"> </span><span class="n">droit</span>
+<span class="n">fermer_app</span>
+<span class="n">scroll</span><span class="w"> </span><span class="n">bas</span>
+<span class="n">ouvrir_app</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">haut_5</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">droite_3</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">gauche_200</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">droite_200</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">gauche_100</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">haut_240</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">bas_150</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">haut_50</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">droite_20</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">droite_50</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">gauche_20</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">bas_300</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">haut_100</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">bas_100</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">gauche_3</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">bas_5</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">droite_300</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">haut_20</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">bas_3</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">gauche_150</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">droite_100</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">droite_5</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">gauche_50</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">gauche_240</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">bas_240</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">bas_50</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">bas_200</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">gauche_300</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">haut_3</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">haut_10</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">haut_200</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">droite_240</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">bas_20</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">haut_300</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">bas_10</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">gauche_10</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">droite_150</span>
+<span class="n">deplacer_souris</span><span class="o">:</span><span class="n">haut_150</span>
+</code></pre></div>
+
+<hr />
+<h2 id="fonctionnalites-en-developpement">🔄 Fonctionnalités en développement<a class="headerlink" href="#fonctionnalites-en-developpement" title="Permanent link">&para;</a></h2>
+<ul>
+<li>📱 Compatibilité Android (Jetpack Compose)</li>
+<li>👁️ Détection d’éléments visuels à l’écran avec vision par ordinateur (YOLO)</li>
+<li>❤️ Correction intelligente des fautes de transcription vocale</li>
+<li>🧠 Apprentissage dynamique des chemins d’exécution pour les applications inconnues</li>
+</ul>
+<hr />
+<p>OrlVoice est conçu pour évoluer rapidement. Les nouvelles fonctionnalités sont ajoutées au fur et à mesure des versions.</p>
 <blockquote>
 <p>🔧 Cette application est toujours en développement actif.</p>
 </blockquote>
