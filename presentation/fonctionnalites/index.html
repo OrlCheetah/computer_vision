@@ -949,6 +949,9 @@
 </ul>
 <hr />
 <h4 id="5-lancement-et-fermeture-dapplications">5. <strong>Lancement et fermeture d’applications</strong><a class="headerlink" href="#5-lancement-et-fermeture-dapplications" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Ces deux commandes doivent obligatoirement etre au format <code>ouvrir [app]</code> ou <code>ouvre [app]</code> et <code>fermer [app] ou</code>ferme [app]`.</p>
+</blockquote>
 <ul>
 <li><code>ouvrir_app</code> : pour ouvrir une application (ex. : "ouvre WhatsApp")<blockquote>
 <p>Pour les applications inconnues, l'utilisateur fournit le chemin d'accès vers l'executable de l'application. le chemin est enregistré dans un fichier json des  pour les futures utilisations. Il est conseillé de fournir le chemin complet de l'exécutable et de garder le nom de l'application simple (ex. : "WhatsApp" pour <code>C:\Program Files\WatsApp\WatsApp.exe</code>) et d'utiliser des noms d'applications sans espaces ni caractères spéciaux.</p>
@@ -1163,7 +1166,8 @@
 </blockquote>
 <hr />
 <h3 id="liste-complete-des-commandes-reconnues">🧾 Liste complète des commandes reconnues<a class="headerlink" href="#liste-complete-des-commandes-reconnues" title="Permanent link">&para;</a></h3>
-<p>les commandes de deplacement de la souris sont au format <code>deplacer_souris:[direction]_[distance]</code> où : <code>[direction]</code> peut être <code>haut</code>, <code>bas</code>, <code>gauche</code>, <code>droite</code> <code>[distance]</code> est un nombre de pixels qui peut <code>[3, 5, 10, 20, 50, 100, 150, 200, 240, 300]</code> (ex. : <code>deplacer_souris:haut_50</code> déplace la souris de 50 pixels vers le haut).</p>
+<p>Cette liste sert de référence des commandes prises en charge, mais lors de la commande l'utlisateur dira tout simplement: <code>deplace la souris vers le bas de 100</code> ou <code>defile vers le haut s'il te plait</code>
+les commandes de deplacement de la souris sont au format <code>deplacer_souris:[direction]_[distance]</code> où : <code>[direction]</code> peut être <code>haut</code>, <code>bas</code>, <code>gauche</code>, <code>droite</code> <code>[distance]</code> est un nombre de pixels qui peut <code>[3, 5, 10, 20, 50, 100, 150, 200, 240, 300]</code></p>
 <div class="codehilite"><pre><span></span><code><span class="n">deplacer_souris</span><span class="o">:</span><span class="n">gauche_5</span>
 <span class="n">scroll</span><span class="w"> </span><span class="n">gauche</span>
 <span class="n">déplacer</span><span class="w"> </span><span class="n">souris</span>
@@ -1238,11 +1242,8 @@
 <h3 id="categories-dactions_1">🎯 Catégories d'actions<a class="headerlink" href="#categories-dactions_1" title="Permanent link">&para;</a></h3>
 <h4 id="1-commandes-de-mouvement-de-la-souris_1">1. <strong>Commandes de mouvement de la souris</strong><a class="headerlink" href="#1-commandes-de-mouvement-de-la-souris_1" title="Permanent link">&para;</a></h4>
 <p>Ces commandes permettent de déplacer le curseur dans une direction spécifique d’un nombre de pixels donné :</p>
-<div class="codehilite"><pre><span></span><code><span class="nl">deplacer_souris</span><span class="p">:</span><span class="o">[</span><span class="n">direction</span><span class="o">]</span><span class="n">_</span><span class="o">[</span><span class="n">distance</span><span class="o">]</span>
-</code></pre></div>
-
 <ul>
-<li>Exemple : <code>deplacer_souris:haut_50</code>, <code>deplacer_souris:gauche_150</code></li>
+<li>Exemple : <code>deplacer la souris vers le haut_50</code>, <code>deplace vers la droite  la souris de 150</code></li>
 </ul>
 <p><strong>Directions supportées</strong> :</p>
 <ul>
